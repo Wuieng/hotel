@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en"  xmlns:th="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="UTF-8">
+    <title>管理员操作界面</title>
+</head>
+<body>
+<button  >注销所有登录用户</button>
+<a class="button" href="/user/logout">注销所有登录用户</a>
+
+<p style="color: red" th:text="${msg}" ></p>
+
+<p style="color: red" th:text="${logout}" ></p>
+<br>
+<!--密码的加密解密之后再做-->
+<table border="2" align="center">
+    <caption>用户列表</caption>
+    <thead >
+    <tr >
+        <th>Id</th>
+        <th>Name</th>
+        <th>Password</th>
+        <th>Phone</th>
+        <th>操作</th>
+
+    </tr>
+    </thead>
+    <tbody align="center">
+    <tr th:each="user:${users}">
+        <td th:text="${user.getId()}"></td>
+        <td th:text="${user.getName()}"></td>
+        <td th:text="${user.getPassword()}"></td>
+        <td th:text="${user.getPhone()}"></td>
+        <td >
+            <form action="/user/changePass">
+<!--                <button name="HotelId" th:value="${user.getId()}" >删除</button>-->
+<!--                打算跳转到修改密码的页面，再重定向-->
+
+                <input type="text"  name="cpassword" placeholder="输入修改密码" >
+<!--                <a class="button" th:href="@{/user/emp/}+${user.getId()}">Test</a>-->
+                <button name="Id" th:value="${user.getId()}" >修改密码</button>
+            </form>
+        </td>
+
+    </tr>
+    </tbody>
+
+
+</table>
+</body>
+</html>

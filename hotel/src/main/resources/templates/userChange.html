@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+</head>
+<body>
+
+<h2>修改信息</h2>
+
+<!--<label  class="sr-only">订单号</label>-->
+
+<!--    <input type="text" name="OrderId"  value="" placeholder="Id" readonly="readonly"> <br>-->
+<form action="/user/changeUser">
+
+
+    <label  class="sr-only">用户号</label>
+    <input type="text" name="Id"  th:value="${user.getId()}" > <br>
+
+    <label  class="sr-only">客户名</label>
+    <input type="text" name="Name"  th:value="${user.getName()}" placeholder="客户名" > <br>
+
+    <label  class="sr-only">客户手机号</label>
+    <input type="text" name="Phone" th:value="${user.getPhone()}" placeholder="客户手机号" > <br>
+
+    <button>提交修改</button>
+
+
+</form>
+
+<form action="/backuser">
+    <button>返回user界面</button>
+</form>
+<p style="color: red" th:text="${msg}" ></p>
+
+</body>
+</html>

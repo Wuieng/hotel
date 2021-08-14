@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8">
+    <title>user登录后的主界面</title>
+
+</head>
+<body>
+<!--<h2><a th:href="@{/user/emp}">修改个人信息</a></h2>-->
+<h2><a href="/user/emp" >修改个人信息</a></h2>
+<form action="/user/Tochange">
+    <a><button name="Id" th:value="${userid}">修改个人信息</button></a>
+</form>
+
+
+<br>
+<a >个人订单</a>
+<table border="2" align="center">
+    <caption>订单列表</caption>
+    <thead onclick="test()">
+    <tr >
+        <th>订单号</th>
+        <th>到达时间</th>
+        <th>离开时间</th>
+        <th>RoomID</th>
+        <th>入住人数</th>
+        <th>操作</th>
+
+    </tr>
+    </thead>
+    <tbody align="center">
+    <tr th:each="ord:${orders}">
+        <td th:text="${ord.getOrderId()}"></td>
+        <td th:text="${ord.getArriveTime()}"></td>
+        <td th:text="${ord.getLeaveTime()}"></td>
+        <td th:text="${ord.getRoomId()}"></td>
+        <td th:text="${ord.getCheckNum()}"></td>
+        <td >
+            <form action="/Order/checkOrder">
+                <!--                <input type="hidden" name="userId" th:value="${userid}">-->
+                <button name="orderId" th:value="${ord.getOrderId()}" >查询订单详情</button>
+            </form>
+        </td>
+
+    </tr>
+    </tbody>
+
+
+</table>
+
+<br>
+<a >酒店列表</a>
+<table border="2" align="center">
+    <caption>酒店列表</caption>
+    <thead onclick="test()">
+    <tr >
+        <th>Id</th>
+        <th>Name</th>
+        <th>Address</th>
+        <th>Phone</th>
+        <th>Intro</th>
+        <th>操作</th>
+
+    </tr>
+    </thead>
+    <tbody align="center">
+    <tr th:each="emp:${emps}">
+        <td th:text="${emp.getId()}"></td>
+        <td th:text="${emp.getName()}"></td>
+        <td th:text="${emp.getAddress()}"></td>
+        <td th:text="${emp.getPhone()}"></td>
+        <td th:text="${emp.getIntro()}"></td>
+        <td >
+            <form action="/Hotel/queryRoomList">
+<!--                <input type="hidden" name="userId" th:value="${userid}">-->
+                <button name="HotelId" th:value="${emp.getId()}" >查询酒店房间</button>
+            </form>
+        </td>
+
+    </tr>
+    </tbody>
+
+
+</table>
+</body>
+</html>

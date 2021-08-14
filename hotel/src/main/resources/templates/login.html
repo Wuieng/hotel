@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+</head>
+
+<body class="text-center" >
+<form class="form-signin" action="/login" method="post" >
+  <h1 class="h3 mb-3 font-weight-normal" >Please sign in</h1>
+
+  <p style="color: red" th:text="${msg}" ></p>
+
+  <label for="inputId" class="sr-only">ID</label>
+  <input type="text" id="inputId" name="Id" class="form-control" placeholder="Id" required="" autofocus="">
+  <!--file 用于选择文件-->
+  <br />
+  <label for="inputPassword" class="sr-only">Password</label>
+  <input type="password" id="inputPassword" name="Password" class="form-control" placeholder="Password" required="">
+
+  <div class="checkbox mb-3">
+    <label>
+      身份<input type="radio" name="type" value="adm">管理员
+      <input type="radio" name="type" value="user" checked="checked">用户
+    </label>
+
+  </div>
+
+  <button class="btn btn-lg btn-primary btn-block" name="login" type="submit">登录</button>
+  <button class="btn btn-lg btn-primary btn-block" name="register" type="submit">注册</button>
+  <p class="mt-5 mb-3 text-muted">© 2017-2018</p>
+</form>
+
+
+</body></html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8">
+    <title>酒店的所有的room</title>
+
+</head>
+<body>
+<!--<h2><a th:href="@{/user/room}">修改个人信息</a></h2>-->
+<!--<h2><a href="/user/room" >修改个人信息</a></h2>-->
+<!--<form action="/user/room">-->
+<!--    <a><button  value="${userid}">修改个人信息</button></a>-->
+<!--</form>-->
+
+<br>
+<a >酒店房间列表</a>
+<table border="2" align="center">
+    <caption>房间列表</caption>
+    <thead onclick="test()">
+    <tr >
+        <th>Id</th>
+        <th>HotelId</th>
+        <th>Type</th>
+        <th>Price</th>
+        <th>房间容纳人数</th>
+        <th>剩余房间数量</th>
+        <th>操作</th>
+
+    </tr>
+    </thead>
+    <tbody align="center">
+    <tr th:each="room:${rooms}">
+        <td th:text="${room.getRoomId()}"></td>
+        <td th:text="${room.getHotelId()}"></td>
+        <td th:text="${room.getType()}"></td>
+        <td th:text="${room.getPrice()}"></td>
+        <td th:text="${room.getNumOfMan()}"></td>
+        <td th:text="${room.getNumOfRoom()}"></td>
+        <td >
+            <form action="/Order/ToOrder">
+                <button name="RoomId" th:value="${room.getRoomId()}" >预定房间</button>
+            </form>
+        </td>
+
+    </tr>
+    </tbody>
+
+
+</table>
+</body>
+</html>

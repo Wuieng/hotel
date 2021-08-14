@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+</head>
+<body>
+
+<h2>订单详情</h2>
+
+<!--<label  class="sr-only">订单号</label>-->
+
+<!--    <input type="text" name="OrderId"  value="" placeholder="Id" readonly="readonly"> <br>-->
+<form name="order" action="/Order/AddOrder">
+<label  class="sr-only">用户号</label>
+    <input type="text" name="userId"  th:value="${user.getId()}" readonly="readonly"> <br>
+
+<label  class="sr-only">客户名</label>
+    <input type="text" name="checkName"  th:value="${user.getName()}" placeholder="客户名" readonly="readonly"> <br>
+
+<label  class="sr-only">客户手机号</label>
+    <input type="text" name="checkPhone" th:value="${user.getPhone()}" placeholder="客户手机号" readonly="readonly"> <br>
+
+<label  class="sr-only">入住时间</label>
+    <input type="date" name="arriveTime"  value="2021-01-13" > <br>
+
+<label  class="sr-only">离开时间</label>
+    <input type="date" name="leaveTime"  value="2021-01-13" > <br>
+
+<label  class="sr-only">房间号</label>
+    <input type="text" name="roomId" th:value="${room.getRoomId()}"  readonly="readonly"> <br>
+
+<label  class="sr-only">房间类型</label>
+    <input type="text" name="roomType"  th:value="${room.getType()}" readonly="readonly"> <br>
+
+<label  class="sr-only">房间价格</label>
+    <input type="text" id="price" name="roomPrice" th:value="${room.getPrice()}" readonly="readonly"> <br>
+
+
+<label  class="sr-only">入住人数</label>
+    <input type="text" name="NumOfMan"   > <br>
+
+    <button name="confirm" >提交订单</button>
+
+</form>
+<p style="color: red" th:text="${msg}" ></p>
+
+</body>
+</html>
